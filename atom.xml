@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://15d23.github.io</id>
+    <title>15d23&apos;s Blog</title>
+    <updated>2020-09-10T13:43:58.318Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://15d23.github.io"/>
+    <link rel="self" href="https://15d23.github.io/atom.xml"/>
+    <subtitle>由始至终（由开始到放弃至彻底放弃）</subtitle>
+    <logo>https://15d23.github.io/images/avatar.png</logo>
+    <icon>https://15d23.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2020, 15d23&apos;s Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[Git杂记2：GitHub使用token上传与下载]]></title>
+        <id>https://15d23.github.io/post/git2/</id>
+        <link href="https://15d23.github.io/post/git2/">
+        </link>
+        <updated>2020-09-10T12:44:18.000Z</updated>
+        <summary type="html"><![CDATA[<p>无需登录直接操作远程仓库</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>无需登录直接操作远程仓库</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Git杂记：本地仓库提交多个远端仓库]]></title>
+        <id>https://15d23.github.io/post/git1/</id>
+        <link href="https://15d23.github.io/post/git1/">
+        </link>
+        <updated>2020-07-03T11:13:36.000Z</updated>
+        <summary type="html"><![CDATA[<p>本地的git仓库如何提交到多个远端hub中</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>本地的git仓库如何提交到多个远端hub中</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[OpenCV之图像融合（一）]]></title>
+        <id>https://15d23.github.io/post/opencv1/</id>
+        <link href="https://15d23.github.io/post/opencv1/">
+        </link>
+        <updated>2020-07-03T05:44:22.000Z</updated>
+        <summary type="html"><![CDATA[<p>把多张相互重叠的图片合成一张图片。例如：全景图片。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>把多张相互重叠的图片合成一张图片。例如：全景图片。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[使用“GitHub”或“Gitee码云”建立个人博客]]></title>
+        <id>https://15d23.github.io/post/gerenboke/</id>
+        <link href="https://15d23.github.io/post/gerenboke/">
+        </link>
+        <updated>2020-07-02T06:52:15.000Z</updated>
+        <summary type="html"><![CDATA[<p>基于&quot;GitHub&quot;或&quot;Gitee码云&quot;结合Gridea<br>
+不花一分钱，建立无广告个人博客。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>基于&quot;GitHub&quot;或&quot;Gitee码云&quot;结合Gridea<br>
+不花一分钱，建立无广告个人博客。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hello Gridea]]></title>
+        <id>https://15d23.github.io/post/hello-gridea/</id>
+        <link href="https://15d23.github.io/post/hello-gridea/">
+        </link>
+        <updated>2018-12-11T16:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+]]></content>
+    </entry>
+</feed>

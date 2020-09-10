@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Git杂记：本地仓库提交多个远端仓库 | 15d23&#39;s Blog</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://15d23.github.io/favicon.ico?v=1599745391778">
+<link rel="stylesheet" href="https://15d23.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-171581465-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-171581465-1');
+</script>
+
+
+    <meta name="description" content="本地的git仓库如何提交到多个远端hub中
+
+本地 git 通过以下命令提交到远端仓库1
+git remote add github https://github.com/gitname/repository.git
+git push -u..." />
+    <meta name="keywords" content="Git" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://15d23.github.io">
+        <img src="https://15d23.github.io/images/avatar.png?v=1599745391778" class="site-logo">
+        <h1 class="site-title">15d23&#39;s Blog</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/15d23/15d23.github.io" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      由始至终（由开始到放弃至彻底放弃）
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://15d23.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Git杂记：本地仓库提交多个远端仓库</h2>
+            <div class="post-date">2020-07-03</div>
+            
+              <div class="feature-container" style="background-image: url('https://15d23.github.io/post-images/git1.jpg')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>本地的git仓库如何提交到多个远端hub中</p>
+<!-- more -->
+<p>本地 git 通过以下命令提交到远端仓库1</p>
+<pre><code>git remote add github https://github.com/gitname/repository.git
+git push -u github master
+</code></pre>
+<p>想要同时提交到另一个远端仓库的方法：</p>
+<h1 id="一-使用-git-remote-add-命令">一、使用 git remote add 命令</h1>
+<ol>
+<li>查看远程仓库的情况，可以看到只有一个叫 github 的远程仓库。</li>
+</ol>
+<pre><code>git remote
+github
+
+git remote -v
+github  https://github.com/gitname/repository.git (fetch)
+github  https://github.com/gitname/repository.git (push)
+</code></pre>
+<ol start="2">
+<li>使用如下命令再添加一个远程仓库</li>
+</ol>
+<pre><code>git remote add oschina https://git.oschina.net/gitname/repository.git
+</code></pre>
+<ol start="3">
+<li>再次查看远程仓库的情况，可以看到已经有两个远程仓库了。然后再使用相应的命令 push 到对应的仓库就行了。这种方法的缺点是每次要 push 两次。</li>
+</ol>
+<pre><code>git remote
+github
+oschina
+
+git remote -v
+github  https://github.com/gitname/repository.git (fetch)
+github  https://github.com/gitname/repository.git (push)
+oschina https://git.oschina.net/gitname/repository.git(fetch)
+oschina https://git.oschina.net/gitname/repository.git (push)
+</code></pre>
+<h1 id="二-使用-git-remote-set-url-命令">二: 使用 git remote set-url 命令</h1>
+<ol>
+<li>删除方法一的 oschina 远程仓库。</li>
+</ol>
+<pre><code>git remote rm oschina
+</code></pre>
+<ol start="2">
+<li>添加远程仓库。</li>
+</ol>
+<pre><code>git remote set-url https://git.oschina.net/gitname/repository.git
+</code></pre>
+<ol start="3">
+<li>查看远程仓库情况。可以看到 github 远程仓库有两个 push 地址。这种方法的好处是每次只需要 push 一次就行了。</li>
+</ol>
+<pre><code>git remote -v
+github  https://github.com/gitname/repository.git (fetch)
+github  https://github.com/gitname/repository.git (push)
+oschina https://git.oschina.net/gitname/repository.git (push)
+</code></pre>
+<h1 id="三-修改配置文件">三: 修改配置文件</h1>
+<p>打开 .git/config 找到 [remote &quot;github&quot;]，添加对应的 url 即可，效果如下。这种方法其实和方法二是一样的。</p>
+<pre><code>[remote &quot;github&quot;]
+    url = https://github.com/zxbetter/test.git
+    fetch = +refs/heads/*:refs/remotes/github/*
+    url = https://git.oschina.net/zxbetter/test.git
+</code></pre>
+<h1 id="关于-git-pull">关于 git pull</h1>
+<p>方法二和三在 push 的时候比较方便。但是在 pull 的时候只能从方法三中的第一个 url 地址拉取代码。而方法一则不存在这种问题（可能要解决冲突）。<br>
+所以，如果只进行 push 操作，推荐方法二和三，如果也要进行 pull 操作，推荐方法一。</p>
+<h1 id="参考">参考</h1>
+<p><a href="http://feitianbenyue.iteye.com/blog/2376791">将项目提交到两个 git 仓库 (github 和 oschina)</a><br>
+<a href="http://blog.csdn.net/isea533/article/details/41382699">Git 提交到多个远程仓库</a><br>
+<a href="https://segmentfault.com/a/1190000011294144">一个项目 push 到多个远程 Git 仓库 - 个人文章 - SegmentFault 思否</a></p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://15d23.github.io/tag/git/" class="tag">
+                    Git
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://15d23.github.io/post/opencv1/">
+                  <h3 class="post-title">
+                    OpenCV之图像融合（一）
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '689ae39f66f8538c050a',
+        clientSecret: 'c17f0d51f509c4acb4edb3657d30853c50fa6327',
+        repo: '15d23.github.io',
+        owner: '15d23',
+        admin: ['15d23'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
