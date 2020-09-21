@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://15d23.github.io/favicon.ico?v=1600657385223">
+<link rel="shortcut icon" href="https://15d23.github.io/favicon.ico?v=1600660515088">
 <link rel="stylesheet" href="https://15d23.github.io/styles/main.css">
 
 
@@ -40,10 +40,7 @@
 
 “OpenCV3.4.5”（支持SURF算法的最后一版）
 对应版本的 “contrib” （可以使用git进行版本转换）
-MingW_x64
-CMake
-
-..." />
+MingW_x64 安装完成后要把“bin”目录..." />
     <meta name="keywords" content="OpenCV" />
   </head>
   <body>
@@ -53,7 +50,7 @@ CMake
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://15d23.github.io">
-        <img src="https://15d23.github.io/images/avatar.png?v=1600657385223" class="site-logo">
+        <img src="https://15d23.github.io/images/avatar.png?v=1600660515088" class="site-logo">
         <h1 class="site-title">15d23&#39;s Blog</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -133,8 +130,67 @@ CMake
 <ul>
 <li>“OpenCV3.4.5”（支持SURF算法的最后一版）</li>
 <li>对应版本的 “contrib” （可以使用git进行版本转换）</li>
-<li><a href="http://mingw-w64.org/doku.php/download/mingw-builds">MingW_x64</a></li>
+<li><a href="http://mingw-w64.org/doku.php/download/mingw-builds">MingW_x64</a> 安装完成后要把“bin”目录配置到环境变量中</li>
 <li>CMake</li>
+</ul>
+<h1 id="构建工程">构建工程</h1>
+<ul>
+<li>
+<p>创建空文件夹“opencv3_4_5/mingw”</p>
+</li>
+<li>
+<p>打开“CMake” ![CMake (https://15d23.github.io/post-images/CMake.jpg)</p>
+</li>
+<li>
+<figure data-type="image" tabindex="1"><img src="https://15d23.github.io/post-images/CMake2opencv.jpg" alt="CMakeConfig" loading="lazy"></figure>
+</li>
+<li>
+<p>点击“Configure”后，选择“MinGW Makefiles”，默认下一步</p>
+</li>
+<li>
+<p>取消勾选以下几项：</p>
+<ul>
+<li>“ENABLE PRECOMPILED HEADERS”</li>
+<li>“WITH CUDA”</li>
+<li>“WITH_1394”</li>
+<li>“WITH LAPACK”</li>
+<li>“WITH VTK”</li>
+</ul>
+</li>
+<li>
+<p>由于我只使用C++开发，所以取消以下几项</p>
+<ul>
+<li>“BUILD JAVA”</li>
+<li>“opencv_java_bindings_generator”</li>
+<li>“BUILD opencv python bindings generator”</li>
+</ul>
+</li>
+<li>
+<p>使用SURF算法，取消</p>
+<ul>
+<li>&quot;OPENCV ENABLE NONFREE&quot;</li>
+</ul>
+</li>
+<li>
+<p>在“OPENCV EXTRA MODULES PATH” 参数后，选择解压好的“contrib”下的“modules”文件夹</p>
+</li>
+<li>
+<p>再次点击“Configure” 无错误后，点击“Generate” 生成项目</p>
+</li>
+<li>
+<p>命令行切换到“mingw”文件夹</p>
+<ul>
+<li>
+<pre><code></code></pre>
+</li>
+</ul>
+<p>mingw32-make.exe -j 16<br>
+mingw32-make.exe install<br>
+```</p>
+<ul>
+<li>在“install” 文件夹下的就是编译好的库</li>
+</ul>
+</li>
 </ul>
 
             </div>
